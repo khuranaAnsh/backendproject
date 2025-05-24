@@ -7,10 +7,22 @@ import { DB_NAME } from "./constants.js";
 import express from "express";
 import connectDB from "./db/index.js";
 
+// ! This is the second approach to connect to the databse in which we have created
+// ! index.js in db folder and in that file we have written the whole code to connect with database
+// ! and in this file we are directly importing that file, this is the better way and according to industry standards
 dotenv.config({
   path: "./.env",
 });
-connectDB();
+connectDB()
+  .then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+      console.log(`Server is running at port: ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("MONGO db connection failed !!!", err);
+  });
+
 // ! Below is first approach where we write the whole code in index.js file
 /*
 const app = express()(
