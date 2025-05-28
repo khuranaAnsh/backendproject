@@ -58,6 +58,9 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isPasswordCorrec = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
+
+// ! Difference between access token and refresh token is that access token ko short duration me expire kr diya jata hai
+// ! or refresh token ko thoda long term me expire krte hai
 userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
