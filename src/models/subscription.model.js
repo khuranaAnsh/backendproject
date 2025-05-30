@@ -1,8 +1,8 @@
 import mongoose, { Schema } from "mongoose";
-import { asyncHandler } from "../utils/asyncHandler";
-import { ApiError } from "../utils/apierror";
-import { User } from "./user.model";
-import { ApiResponse } from "../utils/ApiResponse";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { ApiError } from "../utils/apierror.js";
+import { User } from "./user.model.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
 
 export const subscriptionSchema = new Schema(
   {
