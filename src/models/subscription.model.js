@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
+import { asyncHandler } from "../utils/asyncHandler";
+import { ApiError } from "../utils/apierror";
+import { User } from "./user.model";
+import { ApiResponse } from "../utils/ApiResponse";
 
-const subscriptionSchema = new Schema(
+export const subscriptionSchema = new Schema(
   {
     subsriber: {
       type: Schema.Types.ObjectId,
